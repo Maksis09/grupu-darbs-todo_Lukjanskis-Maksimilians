@@ -27,6 +27,7 @@ Izmantotais compiler: https://onecompiler.com/html
           padding-bottom: 10px;
           padding-top: 25px;
         }
+        
     </style>
   </head>
   <body>
@@ -34,7 +35,12 @@ Izmantotais compiler: https://onecompiler.com/html
       <div class="container mt-3">
         <div class="card" id="karts">
           <h1 id="todo">Todo list</h1>
-          <div class="input-group mb-3" id="inputs">
+          <div class="input-group mb-3 justify-content-between" id="inputs">
+            <select id="dropdown" class="btn btn-secondary" style="width: auto">
+              <option onclick="ChangePriority('Zema')" value="Zema">Zema</option>
+              <option onclick="ChangePriority('Vidēja')" value="Vidēja">Vidēja</option>
+              <option onclick="ChangePriority('Svarīga')" value="Svariga">Svariga</option>
+            </select>
             <input type="text" id="teksts" placeholder="Ieraksti darbu..." class="form-control">
             <button onclick="Create()" type="submit" class="btn btn-primary">Pievienot</button>
           </div>
