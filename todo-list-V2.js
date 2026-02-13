@@ -67,11 +67,11 @@ function Create(todo_item) {
     SaveData();
     // CREATING LIST ITEM
     const lista = document.createElement("li");
-    lista.classList.add("list-group-item","d-flex","justify-content-between", "align-items-center");
+    lista.classList.add("list-group-item","d-flex","justify-content-between", "align-items-center", "shadow");
       
     let badge = document.createElement('span');
     badge.innerText = local_priority;
-    badge.classList.add('badge', local_badge_bg, 'py-2');
+    badge.classList.add('badge', local_badge_bg, 'py-2', 'shadow');
     lista.appendChild(badge);
     
     let teksts = document.createElement('p');
@@ -81,7 +81,7 @@ function Create(todo_item) {
 
     const dzest = document.createElement("button")
     dzest.innerText = "Dzēst";
-    dzest.classList.add("btn", "btn-outline-danger");
+    dzest.classList.add("btn", "btn-outline-danger", "shadow-sm");
     lista.appendChild(dzest);
     
     // EVENT HANDLERS
