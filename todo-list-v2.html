@@ -27,7 +27,6 @@ Izmantotais compiler: https://onecompiler.com/html
           padding-bottom: 10px;
           padding-top: 25px;
         }
-        
     </style>
   </head>
   <body>
@@ -43,6 +42,16 @@ Izmantotais compiler: https://onecompiler.com/html
             </select>
             <input type="text" id="teksts" placeholder="Ieraksti darbu..." class="form-control shadow-sm">
             <button onclick="Create()" type="submit" class="btn btn-primary shadow">Pievienot</button>
+          </div>
+          <div class="btn-group mb-3" role="group">
+            <div class="col-6 btn-group">
+              <input type="text" class="form-control" placeholder="Meklet uzdevumu..." >
+            </div>
+            <div class="col-6 btn-group " >
+            <button type="button" class="btn btn-outline-secondary" style="border-radius:5px 0px 0px 5px">Visi</button>
+            <button type="button" class="btn btn-outline-secondary">Aktivie</button>
+            <button type="button" class="btn btn-outline-secondary">Pabeigtie</button>
+            </div>
           </div>
             <ul id="task-list" class="list-group"></ul>
         </div>
