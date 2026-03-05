@@ -67,8 +67,10 @@ function Create(todo_item) {
     SaveData();
     // CREATING LIST ITEM
     const lista = document.createElement("li");
-    lista.classList.add("list-group-item","d-flex","justify-content-between", "align-items-center", "shadow");
-      
+    lista.classList.add("list-group-item","d-flex","justify-content-between", "align-items-center", "shadow-sm");
+    lista.setAttribute('Aktivs', true);
+    lista.setAttribute('Pabeigts', false);
+    
     let badge = document.createElement('span');
     badge.innerText = local_priority;
     badge.classList.add('badge', local_badge_bg, 'py-2', 'shadow');
@@ -88,9 +90,19 @@ function Create(todo_item) {
     console.log(local_done)
     if (local_done) {
         teksts.classList.toggle('text-decoration-line-through');
+        lista.setAttribute('Aktivs', false);
+        lista.setAttribute('Pabeigts', true);
     }
     teksts.onclick = function() {
         teksts.classList.toggle('text-decoration-line-through');
+        if (teksts.classList.contains('text-decoration-line-through')) {
+            lista.setAttribute('Aktivs', false);
+            lista.setAttribute('Pabeigts', true);
+        } else {
+            lista.setAttribute('Aktivs', true);
+            lista.setAttribute('Pabeigts', false);
+        }
+        
         todo_items[local_index].done = !todo_items[local_index].done;
         SaveData();
     }
@@ -102,6 +114,42 @@ function Create(todo_item) {
     }
  
     task_list.appendChild(lista);
+}
+
+SetFilter("Visi");
+
+function ShowAll() {
+    let AktiviListi = document.querySelectorAll('[Aktivs="true"]');
+        
+    for (let i=0; i < AktiviListi.length; i++) {
+        AktiviListi[i].classList.remove('d-none');
+    }
+        
+    let PabeigtiListi = document.querySelectorAll('[Pabeigts="true"]');
+        
+    for (let i=0; i < PabeigtiListi.length; i++) {
+        PabeigtiListi[i].classList.remove('d-none');
+    }
+}
+
+function SetFilter(filter) {
+    if (filter == "Visi") {
+        ShowAll();
+    } else if (filter == "Aktivie") {
+        ShowAll()
+        let PabeigtiListi = document.querySelectorAll('[Pabeigts="true"]');
+        
+        for (let i=0; i < PabeigtiListi.length; i++) {
+            PabeigtiListi[i].classList.add('d-none');
+        }
+    } else {
+        ShowAll()
+        let AktiviListi = document.querySelectorAll('[Aktivs="true"]');
+        
+        for (let i=0; i < AktiviListi.length; i++) {
+            AktiviListi[i].classList.add('d-none');
+        }
+    }
 }
 
 dropdown.onchange = function() {
@@ -124,15 +172,3 @@ dropdown.onchange = function() {
     
 }
 
-function RaditAtzimetos(){
-  let x = document.getElementById("opt1").checked;
-  let y = document.getElementById("opt2").checked;
-  let z = document.getElementById("opt3").checked;
-  if (x==true) {
-    console.log("visi");
-  } else if(y==true){
-    console.log("Aktivie");
-  } else if(z==true){
-    console.log("Pabeigtie");
-  }
-}

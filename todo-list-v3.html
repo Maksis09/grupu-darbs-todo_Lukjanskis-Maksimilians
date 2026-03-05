@@ -34,6 +34,7 @@ Izmantotais compiler: https://onecompiler.com/html
       <div class="container mt-3">
         <div class="card shadow" id="karts">
           <h1 id="todo">Todo list</h1>
+          <!---->
           <div class="input-group mb-3 justify-content-between shadow-sm" id="inputs">
             <select id="dropdown" class="btn btn-secondary shadow" style="width: auto">
               <option value="Zema">Zema</option>
@@ -43,22 +44,28 @@ Izmantotais compiler: https://onecompiler.com/html
             <input type="text" id="teksts" placeholder="Ieraksti darbu..." class="form-control shadow-sm">
             <button onclick="Create()" type="submit" class="btn btn-primary shadow">Pievienot</button>
           </div>
-          <div class="row" role="group">
-            <div class="col-6">
+          <!---->
+          <div class="btn-group mb-3" role="group">
+            <!---->
+            <div class="col-6 btn-group">
               <input type="text" class="form-control" placeholder="Meklet uzdevumu..." >
             </div>
-            <div class="col-6 btn-group">
-            <input type="radio" id="opt1" class="btn-check" name="options" style="border-radius:5px 0px 0px 5px" autocomplete="off" checked="" onclick="RaditAtzimetos()"></button>
-            <label class="btn btn-outline-secondary" for="opt1">Visi</label>  
-            <input type="radio" id="opt2" name="options" class="btn-check" autocomplete="off" onclick="RaditAtzimetos()"></button>
-            <label class="btn btn-outline-secondary" for="opt2">Aktivie</label> 
-            <input type="radio" id="opt3" name="options" class="btn-check" autocomplete="off" onclick="RaditAtzimetos()"></button>
-            <label class="btn btn-outline-secondary" for="opt3">Pabeigtie</label> 
+            <!---->
+            <div class="col-6 btn-group " >
+                <button id="visi_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Visi')">Visi</button>
+                <button id="aktivie_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Aktivie')">Aktivie</button>
+                <button id="pabeigtie_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Pabeigtie')">Pabeigtie</button>
             </div>
           </div>
-            <ul id="task-list" class="list-group"></ul>
+          <!---->
+         <ul id="task-list" class="list-group"></ul>
+         <hr>
+         <div class="container d-flex d-inline justify-content-between py-0">
+              <p id='finished'>Atlikuši 0 darbi</p>
+              <a class='link-danger'>Notīrīt pabeigtos</a>
+          </div>
         </div>
       </div>
-      <script src="todo-list-V2.js"></script>
+      <script src="todo-list-V3.js"></script>
   </body>
 </html>
