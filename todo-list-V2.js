@@ -123,3 +123,16 @@ dropdown.onchange = function() {
     }
     
 }
+
+function RaditAtzimetos(){
+  let x = document.getElementById("opt1").checked;
+  let y = document.getElementById("opt2").checked;
+  let z = document.getElementById("opt3").checked;
+  if (x==true) {
+    console.log("visi");
+  } else if(y==true){
+    console.log("Aktivie");
+  } else if(z==true){
+    console.log("Pabeigtie");
+  }
+}
