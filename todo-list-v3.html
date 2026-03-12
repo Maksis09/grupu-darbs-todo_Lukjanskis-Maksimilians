@@ -6,66 +6,94 @@ Izmantotais compiler: https://onecompiler.com/html
 -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello, World!</title>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <style>
-        body{
-          padding: 25px;
-        }
-        .title {
-        	color: #5C6AC4;
-        }
-        #todo{
-          text-align: center;
-        }
-        .card{
-          padding-left:10px;
-          padding-right:10px;
-          padding-bottom: 10px;
-          padding-top: 25px;
-        }
-    </style>
-  </head>
-  <body>
-      <h3>Mani darbi</h3>
-      <div class="container mt-3">
+    <head>
+        <title>Hello, World!</title>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <style>
+            body{
+              padding: 25px;
+            }
+            .title {
+            	color: #5C6AC4;
+            }
+            #todo{
+              text-align: center;
+            }
+            .card{
+              padding-left:10px;
+              padding-right:10px;
+              padding-bottom: 10px;
+              padding-top: 25px;
+            }
+        </style>
+    </head>
+<body>
+    <h3>Mani darbi</h3>
+    <div class="container mt-3">
         <div class="card shadow" id="karts">
-          <h1 id="todo">Todo list</h1>
-          <!---->
-          <div class="input-group mb-3 justify-content-between shadow-sm" id="inputs">
-            <select id="dropdown" class="btn btn-secondary shadow" style="width: auto">
-              <option value="Zema">Zema</option>
-              <option value="Vidēja">Vidēja</option>
-              <option value="Svariga">Svariga</option>
-            </select>
-            <input type="text" id="teksts" placeholder="Ieraksti darbu..." class="form-control shadow-sm">
-            <button onclick="Create()" type="submit" class="btn btn-primary shadow">Pievienot</button>
-          </div>
-          <!---->
-          <div class="btn-group mb-3" role="group">
+            <h1 id="todo">Todo list</h1>
             <!---->
-            <div class="col-6 btn-group">
-              <input type="text" class="form-control" placeholder="Meklet uzdevumu..." >
+            <div class="input-group mb-3 justify-content-between shadow-sm" id="inputs">
+                <select id="dropdown" class="btn btn-secondary shadow" style="width: auto">
+                    <option value="Zema">Zema</option>
+                    <option value="Vidēja">Vidēja</option>
+                    <option value="Svariga">Svariga</option>
+                </select>
+                <input 
+                    type="text" 
+                    id="teksts" 
+                    placeholder="Ieraksti darbu..." 
+                    class="form-control shadow-sm"
+                >
+
+                <button onclick="Create()" type="submit" class="btn btn-primary shadow">Pievienot</button>
             </div>
             <!---->
-            <div class="col-6 btn-group " >
-                <button id="visi_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Visi')">Visi</button>
-                <button id="aktivie_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Aktivie')">Aktivie</button>
-                <button id="pabeigtie_filtrs" type="button" class="btn btn-outline-secondary" onclick="SetFilter('Pabeigtie')">Pabeigtie</button>
+            <div class="btn-group mb-3" role="group">
+                <!---->
+                <div class="col-6 btn-group">
+                    <input 
+                        id="search"
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Meklet uzdevumu..."
+                    >
+                </div>
+                <!---->
+                <div class="col-6 btn-group">
+                    <button 
+                        id="visi_filtrs" 
+                        type="button" 
+                        class="btn btn-outline-secondary" 
+                        onclick="SetFilter('Visi')"
+                    >Visi</button>
+                    
+                    <button 
+                        id="aktivie_filtrs" 
+                        type="button" 
+                        class="btn btn-outline-secondary" 
+                        onclick="SetFilter('Aktivie')"
+                    >Aktivie</button>
+                    
+                    <button 
+                        id="pabeigtie_filtrs" 
+                        type="button" 
+                        class="btn btn-outline-secondary" 
+                        onclick="SetFilter('Pabeigtie')"
+                    >Pabeigtie</button>
+                </div>
             </div>
-          </div>
-          <!---->
-         <ul id="task-list" class="list-group"></ul>
-         <hr>
-         <div class="container d-flex d-inline justify-content-between py-0">
-              <p id='finished'>Atlikuši 0 darbi</p>
-              <a class='link-danger'>Notīrīt pabeigtos</a>
-          </div>
+            <!---->
+            <ul id="task-list" class="list-group"></ul>
+            <hr>
+            <div class="container d-flex d-inline justify-content-between py-0">
+                <p id="unfinished">Atlikuši 0 darbi</p>
+                <a class="link-danger" onclick="RemoveFinished()">Notīrīt pabeigtos</a>
+            </div>
         </div>
-      </div>
-      <script src="todo-list-V3.js"></script>
-  </body>
+    </div>
+    <script src="todo-list-V3.js"></script>
+</body>
 </html>
